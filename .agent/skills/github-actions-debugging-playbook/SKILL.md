@@ -35,3 +35,9 @@ Use this skill to answer the practical question, "what is the target-platform wa
 - Do not dump secrets into logs while debugging.
 - Make failure artifacts and targeted debug logs easy to enable.
 - Prefer reproducible, minimal diagnostics over giant permanent YAML hacks.
+
+## Extended references
+
+- Read `references/decision-guide.md` when the user needs a migration path or sequence.
+- Read `references/worked-example.md` when a concrete example would help.
+- Read `references/review-checklist.md` when reviewing an implementation or plan.

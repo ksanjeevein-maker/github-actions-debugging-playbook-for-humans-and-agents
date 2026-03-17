@@ -1,36 +1,39 @@
 # GitHub Actions Debugging Playbook for Humans and Agents
 
-A playbook for debugging CI failures in GitHub Actions. It focuses on workflow triggers, contexts, permissions, caches, service containers, debug logs, and failure triage patterns that humans and agents can reuse.
+A playbook for debugging CI failures in GitHub Actions.
 
-CI failures feel random until you make event context, runner environment, permissions, cache design, and artifact capture explicit parts of the workflow.
+High-value debugging comes from event awareness, permission clarity, cache discipline, and artifact capture, not random `echo` spam.
 
-## Best use
+## What makes this repo more useful now
 
-- triaging flaky or opaque GitHub Actions failures
-- teaching teams a repeatable CI-debugging workflow
-- reviewing workflow YAML for hidden permission or context mistakes
-- improving failure observability with logs, artifacts, and conditionals
+- A stronger learning path for self-study and onboarding
+- A worked example that shows the migration or debugging move end to end
+- A mental-model diagram for fast orientation
+- A review checklist for code review or design review
+- Portable agent files for Codex, Copilot, Cursor, and Antigravity
 
-## Core topics
+## Learning path
 
-- event triggers, contexts, and workflow conditionals
-- runner environment, shells, and path issues
-- caching and dependency invalidation
-- permissions, tokens, and secrets troubleshooting
-- debug logging, artifacts, and failure forensics
+- Start with event context and job conditions before debugging commands.
+- Check runner environment, shell, filesystem, and toolchain assumptions next.
+- Then review permissions, secrets, and cache keys.
+- Finish by improving failure forensics with logs, artifacts, and reproducible reruns.
 
-## Questions this pack should answer well
+## High-signal traps
 
-- Why did this workflow run with different values on `pull_request` vs `push`?
-- How do I inspect contexts without leaking secrets?
-- Why is my cache restoring stale dependencies?
-- How should I capture extra logs only when a job fails?
+- Debugging the script before checking whether the wrong event or ref triggered it.
+- Printing too much and still not capturing the exact artifact or context you need.
+- Trusting cache hits without validating invalidation logic.
+- Assuming `GITHUB_TOKEN` and secrets behave the same on forks and pushes.
 
-## When not to use this pack
+## Read this next
 
-- complete CI/CD platform comparisons
-- self-hosted runner fleet management at infrastructure scale
-- security policy design beyond GitHub Actions scope
+- Main portable guide: `AGENTS.md`
+- Decision guide: `docs/decision-guide.md`
+- Worked example: `examples/worked-example.md`
+- Mental-model diagram: `docs/mental-model-map.md`
+- Review checklist: `docs/review-checklist.md`
+- Official references: `official-references.md`
 
 ## Agent formats
 
@@ -40,9 +43,3 @@ CI failures feel random until you make event context, runner environment, permis
 - Cursor rule: `.cursor/rules/github-actions-debugging-playbook.mdc`
 - Antigravity-style rule: `.agent/rules/github-actions-debugging-playbook.md`
 - Antigravity-style skill: `.agent/skills/github-actions-debugging-playbook/`
-
-## Source policy
-
-- Prefer official framework and library docs first.
-- Prefer official GitHub org repos second.
-- Re-check official docs when framework behavior may have changed.
